@@ -3,6 +3,7 @@ import 'package:study_flutter/widgets/base/ButtonPage.dart';
 import 'package:study_flutter/widgets/base/TextPage.dart';
 
 void main() {
+  // 入口方法
   runApp(MyApp());
 }
 
@@ -30,6 +31,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  /// 导航到一个新界面
+  void navigatorPush(BuildContext context, Widget widget) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return widget;
+    }));
+  }
+
+  /// 弹出当前栈顶页面
+  void navigatorPop(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,22 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             TextButton(
               child: Text('文本'),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return TextPage();
-                }));
-              },
+              onPressed: () => navigatorPush(context, TextPage()),
               style: ButtonStyle(
                 textStyle: MaterialStateProperty.all(TextStyle(fontSize: 20)),
               ),
             ),
             TextButton(
               child: Text('按钮'),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ButtonPage();
-                }));
-              },
+              onPressed: () => navigatorPush(context, ButtonPage()),
               style: ButtonStyle(
                 textStyle: MaterialStateProperty.all(TextStyle(fontSize: 20)),
               ),
