@@ -6,11 +6,15 @@ class TextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("文本"),
+        title: Text("文本示例"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Text1(), TextRich1(), DefaultTextStyle1()],
+        children: [
+          Padding(padding: EdgeInsets.all(5.0), child: Text1()),
+          Padding(padding: EdgeInsets.all(5.0), child: TextRich1()),
+          Padding(padding: EdgeInsets.all(5.0), child: DefaultTextStyle1())
+        ],
       ),
     );
   }

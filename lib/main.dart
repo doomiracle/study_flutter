@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:study_flutter/widgets/base/ButtonPage.dart';
+import 'package:study_flutter/widgets/base/TextFieldPage.dart';
 import 'package:study_flutter/widgets/base/TextPage.dart';
+import 'package:study_flutter/widgets/base/ImagePage.dart';
+import 'package:study_flutter/widgets/base/SwitchPage.dart';
 
 void main() {
   // 入口方法
@@ -31,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   /// 导航到一个新界面
   void navigatorPush(BuildContext context, Widget widget) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -54,20 +56,51 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
-              child: Text('文本'),
-              onPressed: () => navigatorPush(context, TextPage()),
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.all(TextStyle(fontSize: 20)),
-              ),
-            ),
-            TextButton(
-              child: Text('按钮'),
-              onPressed: () => navigatorPush(context, ButtonPage()),
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.all(TextStyle(fontSize: 20)),
-              ),
-            ),
+            Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextButton(
+                    child: Text('文本'),
+                    onPressed: () => navigatorPush(context, TextPage()),
+                    style: ButtonStyle(
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 20)),
+                    ))),
+            Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextButton(
+                    child: Text('按钮'),
+                    onPressed: () => navigatorPush(context, ButtonPage()),
+                    style: ButtonStyle(
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 20)),
+                    ))),
+            Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextButton(
+                    child: Text('图片'),
+                    onPressed: () => navigatorPush(context, ImagePage()),
+                    style: ButtonStyle(
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 20)),
+                    ))),
+            Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextButton(
+                    child: Text('选择控件'),
+                    onPressed: () => navigatorPush(context, SwitchPage()),
+                    style: ButtonStyle(
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 20)),
+                    ))),
+            Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextButton(
+                    child: Text('输入框'),
+                    onPressed: () => navigatorPush(context, TextFieldPage()),
+                    style: ButtonStyle(
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 20)),
+                    ))),
           ],
         ),
       ),
