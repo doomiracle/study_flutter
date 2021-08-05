@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/widgets/base/ButtonPage.dart';
-import 'package:study_flutter/widgets/base/ImagePage.dart';
-import 'package:study_flutter/widgets/base/ProgressPage.dart';
-import 'package:study_flutter/widgets/base/SwitchPage.dart';
-import 'package:study_flutter/widgets/base/TextFieldPage.dart';
+import 'package:study_flutter/widgets/basic/ButtonPage.dart';
+import 'package:study_flutter/widgets/basic/ImagePage.dart';
+import 'package:study_flutter/widgets/basic/ProgressPage.dart';
+import 'package:study_flutter/widgets/basic/SwitchPage.dart';
+import 'package:study_flutter/widgets/basic/TextFieldPage.dart';
 import 'package:study_flutter/widgets/multi/LinearLayoutPage.dart';
 
-import 'base/TextPage.dart';
+import 'basic/TextPage.dart';
 import 'multi/WrapPage.dart';
 
 /// Widget
