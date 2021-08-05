@@ -28,6 +28,8 @@ class TextPage extends StatelessWidget {
 /// style 文本风格；TextStyle
 ///                 color 文本颜色
 ///                 fontSize  字体大小
+///                 fontStyle 文字风格；FontStyle.italic 斜体
+///                 fontWeight  字重；FontWeight.bold  加粗
 ///                 height  行高；它并不是一个绝对值，而是一个因子，具体的行高等于 fontSize * height
 ///                 background  背景
 ///                 decoration  装饰
@@ -44,6 +46,8 @@ class Text1 extends StatelessWidget {
       style: TextStyle(
           color: Colors.black,
           fontSize: 18.0,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.bold,
           height: 1.2,
           background: new Paint()..color = Colors.yellow,
           decoration: TextDecoration.underline,
