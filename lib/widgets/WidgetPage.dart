@@ -6,11 +6,16 @@ import 'basic/ImagePage.dart';
 import 'basic/ProgressPage.dart';
 import 'basic/SwitchPage.dart';
 import 'basic/TextFieldPage.dart';
+import 'single/ScaffoldPage.dart';
 import 'single/ContainerPage.dart';
 import 'single/AlignPage.dart';
+import 'single/ScrollLayoutPage.dart';
 import 'multi/LinearLayoutPage.dart';
 import 'multi/WrapPage.dart';
 import 'multi/StackPage.dart';
+import 'multi/ListLayoutPage.dart';
+import 'functional/WillPopScopePage.dart';
+import 'functional/InheritedWidgetPage.dart';
 
 /// Widget
 class WidgetPage extends StatelessWidget {
@@ -108,6 +113,13 @@ class WidgetPage extends StatelessWidget {
               spacing: 8.0,
               children: [
                 ElevatedButton(
+                  onPressed: () => _navigatorPush(context, ScaffoldPage()),
+                  child: Text("脚手架"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                ),
+                ElevatedButton(
                   onPressed: () => _navigatorPush(context, ContainerPage()),
                   child: Text("容器"),
                   style: ButtonStyle(
@@ -117,6 +129,13 @@ class WidgetPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => _navigatorPush(context, AlignPage()),
                   child: Text("排列对齐"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () => _navigatorPush(context, ScrollLayoutPage()),
+                  child: Text("滚动布局"),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
@@ -157,6 +176,46 @@ class WidgetPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => _navigatorPush(context, StackPage()),
                   child: Text("层叠布局"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () => _navigatorPush(context, ListLayoutPage()),
+                  child: Text("列表布局"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              '功能型组件',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 10.0, right: 10.0),
+            child: Wrap(
+              spacing: 8.0,
+              children: [
+                ElevatedButton(
+                  onPressed: () => _navigatorPush(context, WillPopScopePage()),
+                  child: Text("导航返回拦截"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () => _navigatorPush(context, InheritedWidgetPage()),
+                  child: Text("数据共享"),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
