@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/widgets/WidgetPage.dart';
+
+import 'widgets/WidgetPage.dart';
+import 'theme/ThemePage.dart';
 
 void main() {
   // 入口方法
@@ -39,22 +41,30 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Flutter示例"),
       ),
-      body: Wrap(
-        spacing: 8.0,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10.0),
-            child: ElevatedButton(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        child:  Wrap(
+          spacing: 8.0,
+          children: <Widget>[
+            ElevatedButton(
               onPressed: () => _navigatorPush(context, WidgetPage()),
               child:
-                  Text("Widget", style: TextStyle(fontWeight: FontWeight.bold)),
+              Text("Widget", style: TextStyle(fontWeight: FontWeight.bold)),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.blue),
               ),
             ),
-          ),
-        ],
-      ),
+            ElevatedButton(
+              onPressed: () => _navigatorPush(context, ThemePage()),
+              child:
+              Text("主题", style: TextStyle(fontWeight: FontWeight.bold)),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue),
+              ),
+            ),
+          ],
+        ),
+      )
     );
   }
 }
