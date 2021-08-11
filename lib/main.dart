@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
         title: Text("Flutter示例"),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.all(10.0),
         child:  Wrap(
           spacing: 8.0,
           children: <Widget>[
