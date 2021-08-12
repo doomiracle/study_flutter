@@ -6,6 +6,7 @@ import 'theme/ThemePage.dart';
 import 'future/FuturePage.dart';
 import 'animation/AnimationPage.dart';
 import 'file/FilePage.dart';
+import 'http/HttpPage.dart';
 
 void main() {
   // 入口方法
@@ -94,6 +95,14 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () => _navigatorPush(context, FilePage()),
                 child:
                 Text("文件操作", style: TextStyle(fontWeight: FontWeight.bold)),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () => _navigatorPush(context, HttpPage()),
+                child:
+                Text("Http", style: TextStyle(fontWeight: FontWeight.bold)),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
                 ),

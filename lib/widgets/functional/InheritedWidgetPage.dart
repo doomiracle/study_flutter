@@ -54,10 +54,7 @@ class _TestWidgetState extends State<_TestWidget> {
   @override
   Widget build(BuildContext context) {
     //使用InheritedWidget中的共享数据
-    return Text(ShareDataWidget
-        .of(context)
-        .data
-        .toString());
+    return Text(ShareDataWidget.of(context)?.data.toString() ?? "未获取到数据");
   }
 
   @override
@@ -76,13 +73,13 @@ class ShareDataWidget extends InheritedWidget {
   final int data;
 
   ShareDataWidget({
-    @required this.data,
-    Widget child
+    required this.data,
+    required Widget child
   }) :super(child: child);
 
 
   // 定义一个便捷方法，方便子树中的widget获取共享数据
-  static ShareDataWidget of(BuildContext context) {
+  static ShareDataWidget? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
     // 如果通过下面这种方式返回对象，则不会注册依赖关系
     // return context.getElementForInheritedWidgetOfExactType<ShareDataWidget>().widget;

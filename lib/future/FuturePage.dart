@@ -80,7 +80,6 @@ class StreamBuilder1 extends StatelessWidget {
             case ConnectionState.done:
               return Text('Stream已关闭');
           }
-          return null; // unreachable
         },
       ),
     );

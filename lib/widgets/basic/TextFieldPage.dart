@@ -101,10 +101,10 @@ class _TextFieldPageState extends State<TextFieldPage> {
 ///                                   focusedBorder 有焦点时的边框
 class TextField1 extends StatelessWidget {
   // 控制器
-  TextEditingController _controller;
-  FocusNode _focusNode;
+  TextEditingController? _controller;
+  FocusNode? _focusNode;
 
-  TextField1(TextEditingController controller, FocusNode focusNode) {
+  TextField1(TextEditingController? controller, FocusNode? focusNode) {
     _controller = controller;
     _focusNode = focusNode;
   }

@@ -25,7 +25,7 @@ class DialogPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 // 弹出对话框并等待其关闭
-                bool result1 = await showDialog(
+                bool? result1 = await showDialog(
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext context) {
@@ -41,7 +41,7 @@ class DialogPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                int result2 = await showDialog(
+                int? result2 = await showDialog(
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext context) {
@@ -57,7 +57,7 @@ class DialogPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                int result3 = await showDialog(
+                int? result3 = await showDialog(
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext context) {
@@ -74,7 +74,7 @@ class DialogPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 // 弹出对话框并等待其关闭
-                bool result4 = await showCustomDialog(
+                bool? result4 = await showCustomDialog(
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext context) {
@@ -90,7 +90,7 @@ class DialogPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                int result5 = await showModalBottomSheet(
+                int? result5 = await showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
                       return ListView.builder(
@@ -118,7 +118,7 @@ class DialogPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 // 弹出对话框并等待其关闭
-                DateTime result = await _showDatePicker1(context);
+                DateTime? result = await _showDatePicker1(context);
                 if (result == null) {
                   print("啥都没选");
                 } else {
@@ -130,7 +130,7 @@ class DialogPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 // 弹出对话框并等待其关闭
-                DateTime result = await _showDatePicker2(context);
+                DateTime? result = await _showDatePicker2(context);
                 if (result == null) {
                   print("啥都没选");
                 } else {
@@ -245,12 +245,12 @@ class Dialog1 extends StatelessWidget {
 ///         barrierColor  遮罩颜色
 ///         transitionDuration  对话框打开/关闭的动画时长
 ///         transitionBuilder 对话框打开/关闭的动画
-Future<T> showCustomDialog<T>({
-  @required BuildContext context,
+Future<T?> showCustomDialog<T>({
+  required BuildContext context,
+  required WidgetBuilder builder,
   bool barrierDismissible = true,
-  WidgetBuilder builder,
 }) {
-  final ThemeData theme = Theme.of(context);
+  final ThemeData? theme = Theme.of(context);
   return showGeneralDialog(
     context: context,
     pageBuilder: (BuildContext buildContext, Animation<double> animation,
@@ -311,20 +311,21 @@ showLoadingDialog(BuildContext context) {
 }
 
 /// 日历弹窗
-Future<DateTime> _showDatePicker1(BuildContext context) {
+Future<DateTime?> _showDatePicker1(BuildContext context) {
   var date = DateTime.now();
   return showDatePicker(
     context: context,
     initialDate: date,
     firstDate: date,
-    lastDate: date.add( //未来30天可选
+    lastDate: date.add(
+      //未来30天可选
       Duration(days: 30),
     ),
   );
 }
 
 /// IOS风格弹窗
-Future<DateTime> _showDatePicker2(BuildContext context) {
+Future<DateTime?> _showDatePicker2(BuildContext context) {
   var date = DateTime.now();
   return showCupertinoModalPopup(
     context: context,

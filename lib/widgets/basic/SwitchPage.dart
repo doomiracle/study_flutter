@@ -65,7 +65,7 @@ class Checkbox1 extends StatefulWidget {
 
 class _CheckboxState1 extends State<Checkbox1> {
   // 勾选框状态
-  bool _checkboxSelected = false;
+  bool? _checkboxSelected = false;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class FilePage extends StatefulWidget {
 /// 文件操作
 /// 这里引入 path_provider 库，用于在文件系统上查找常用位置。支持 iOS、Android、Linux 和 MacOS。并非所有平台都支持所有方法。
 /// 可以使用 getTemporaryDirectory() 获取cache目录；getApplicationDocumentsDirectory() 获取File目录；getExternalStorageDirectory() 获取外部存储
-///
+/// PS：如果是存简单的数据，可以使用 shared_preferences 这个库
 class _FilePageState extends State<FilePage> {
   // 从文件中读取的内容
   String _fileStr = "";

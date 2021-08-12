@@ -130,7 +130,7 @@ class DecoratedBox1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.red, Colors.orange[700]]),
+            gradient: LinearGradient(colors: [Colors.red, Colors.orange]),
             borderRadius: BorderRadius.circular(3.0),
             boxShadow: [
               BoxShadow(
