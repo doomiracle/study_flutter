@@ -13,9 +13,9 @@ class HttpPage extends StatefulWidget {
 }
 
 class _HttpPageState extends State<HttpPage> {
-
   // 是否正在请求
   bool _loading = false;
+
   // 请求的结果
   String? _result;
 
@@ -38,8 +38,13 @@ class _HttpPageState extends State<HttpPage> {
           children: [
             ElevatedButton(
               onPressed: () async {
+                setState(() {
+                  _loading = true;
+                  _result = "正在请求...";
+                });
                 String response = await _httpClient1();
                 setState(() {
+                  _loading = false;
                   _result = response;
                 });
               },
@@ -53,16 +58,21 @@ class _HttpPageState extends State<HttpPage> {
   }
 
   Future<String> _httpClient1() async {
-    // 创建一个HttpClient
-    HttpClient httpClient = new HttpClient();
-    // 打开Http连接
-    HttpClientRequest request = await httpClient.getUrl(uri);
-    // 等待连接服务器（会将请求信息发送给服务器）
-    HttpClientResponse response = await request.close();
-    // 读取响应内容
-    String content = await response.transform(utf8.decoder).join();
-    // 关闭client后，通过该client发起的所有请求都会中止。
-    httpClient.close();
-    return content;
+    String responseContent = "";
+    try {
+      // 创建一个HttpClient
+      HttpClient httpClient = new HttpClient();
+      // 打开Http连接
+      HttpClientRequest request = await httpClient.getUrl(uri);
+      // 等待连接服务器（会将请求信息发送给服务器）
+      HttpClientResponse response = await request.close();
+      // 读取响应内容
+      responseContent = await response.transform(utf8.decoder).join();
+      // 关闭client后，通过该client发起的所有请求都会中止。
+      httpClient.close();
+    } catch (e) {
+      responseContent = e.toString();
+    }
+    return responseContent;
   }
 }
