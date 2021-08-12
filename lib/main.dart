@@ -4,6 +4,8 @@ import 'widgets/WidgetPage.dart';
 import 'dialog/DialogPage.dart';
 import 'theme/ThemePage.dart';
 import 'future/FuturePage.dart';
+import 'animation/AnimationPage.dart';
+import 'file/FilePage.dart';
 
 void main() {
   // 入口方法
@@ -58,8 +60,8 @@ class MyHomePage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () => _navigatorPush(context, DialogPage()),
-                child:
-                Text("Dialog", style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text("Dialog",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
                 ),
@@ -76,6 +78,22 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () => _navigatorPush(context, FuturePage()),
                 child:
                     Text("异步UI", style: TextStyle(fontWeight: FontWeight.bold)),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () => _navigatorPush(context, AnimationPage()),
+                child:
+                Text("动画", style: TextStyle(fontWeight: FontWeight.bold)),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () => _navigatorPush(context, FilePage()),
+                child:
+                Text("文件操作", style: TextStyle(fontWeight: FontWeight.bold)),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
                 ),
