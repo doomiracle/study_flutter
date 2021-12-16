@@ -1,114 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-import 'widgets/WidgetPage.dart';
-import 'dialog/DialogPage.dart';
-import 'theme/ThemePage.dart';
-import 'future/FuturePage.dart';
-import 'animation/AnimationPage.dart';
-import 'file/FilePage.dart';
-import 'http/HttpPage.dart';
+import 'page/getx/GetXPage.dart';
+import 'page/main/MainPage.dart';
 
+/// 应用启动方法
 void main() {
   // 入口方法
-  runApp(MyApp());
+  runApp(MainApp());
+  // runApp(GetXApp());
 }
 
-class MyApp extends StatelessWidget {
+/// 主应用
+/// Material风格
+/// Flutter Sample 应用
+class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 创建一个MD风格的APP
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Sample',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MainPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  /// 导航到一个新界面
-  void _navigatorPush(BuildContext context, Widget widget) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return widget;
-    }));
-  }
-
-  /// 弹出当前栈顶页面
-  void _navigatorPop(BuildContext context) {
-    Navigator.pop(context);
-  }
-
+/// GetX 应用
+/// Material风格
+/// 通过 GetX 这个框架实现 路由管理、状态管理、依赖管理
+/// 注意：如果仅仅只用到了 状态管理，是可以不用创建 GetMaterialApp 的
+class GetXApp extends GetMaterialApp{
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter示例"),
-        ),
-        body: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Wrap(
-            spacing: 8.0,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, WidgetPage()),
-                child: Text("Widget",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, DialogPage()),
-                child: Text("Dialog",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, ThemePage()),
-                child:
-                    Text("主题", style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, FuturePage()),
-                child:
-                    Text("异步UI", style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, AnimationPage()),
-                child:
-                Text("动画", style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, FilePage()),
-                child:
-                Text("文件操作", style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () => _navigatorPush(context, HttpPage()),
-                child:
-                Text("Http", style: TextStyle(fontWeight: FontWeight.bold)),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-              ),
-            ],
-          ),
-        ));
-  }
+  Widget? get home => GetXPage();
 }
