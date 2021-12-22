@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:study_flutter/common/util/AppUtil.dart';
+
 import '/sample/widget/basic/ButtonSample.dart';
 
 /// 按钮展示
@@ -12,9 +14,16 @@ class ButtonPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: EdgeInsets.all(5.0),
+            child: ElevatedButton1(
+              onPressed: () {
+                showToast("悬浮按钮被点击...");
+              },
+            ),
+          ),
           Padding(padding: EdgeInsets.all(5.0), child: TextButton1()),
           Padding(padding: EdgeInsets.all(5.0), child: OutlinedButton1()),
-          Padding(padding: EdgeInsets.all(5.0), child: ElevatedButton1()),
           Padding(padding: EdgeInsets.all(5.0), child: IconButton1()),
           Padding(padding: EdgeInsets.all(5.0), child: OutlinedButtonIcon()),
         ],

@@ -13,6 +13,7 @@ class TextPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(padding: EdgeInsets.all(5.0), child: Text1()),
+          Padding(padding: EdgeInsets.all(5.0), child: Text2()),
           Padding(padding: EdgeInsets.all(5.0), child: TextRich1()),
           Padding(padding: EdgeInsets.all(5.0), child: DefaultTextStyle1())
         ],
@@ -20,4 +21,3 @@ class TextPage extends StatelessWidget {
     );
   }
 }
-

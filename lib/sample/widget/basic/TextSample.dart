@@ -5,6 +5,24 @@ import 'package:flutter/material.dart';
 /// maxLines  最大行数；默认情况下，文本是自动折行的
 /// overflow  超长的内容显示方式；常与maxLines配合使用
 /// textScaleFactor 相对于当前字体大小的缩放因子；默认1.0
+/// style   文本样式;TextStyle
+class Text1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "这是一个普通的文字",
+      // 对齐方式
+      textAlign: TextAlign.left,
+      // 最大行数
+      maxLines: 2,
+      // 超长的内容显示方式
+      overflow: TextOverflow.ellipsis,
+      // 相对于当前字体大小的缩放因子
+      textScaleFactor: 1.0,
+    );
+  }
+}
+
 /// style 文本风格；TextStyle
 ///                 color 文本颜色
 ///                 fontSize  字体大小
@@ -14,24 +32,29 @@ import 'package:flutter/material.dart';
 ///                 background  背景
 ///                 decoration  装饰
 ///                 decorationStyle  装饰风格
-class Text1 extends StatelessWidget {
+class Text2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "这是一个最普通的文字" * 2, // 文字内容
-      textAlign: TextAlign.left,
-      maxLines: 2,
-      overflow: TextOverflow.ellipsis,
-      textScaleFactor: 0.8,
+      "通过TextStyle改变文字样式",
       style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontStyle: FontStyle.normal,
-          fontWeight: FontWeight.bold,
-          height: 1.2,
-          background: new Paint()..color = Colors.yellow,
-          decoration: TextDecoration.underline,
-          decorationStyle: TextDecorationStyle.dashed),
+        // 文本颜色
+        color: Colors.black,
+        // 字体大小
+        fontSize: 18.0,
+        // 文字风格
+        fontStyle: FontStyle.normal,
+        // 字重
+        fontWeight: FontWeight.bold,
+        // 行高
+        height: 1.2,
+        // 背景
+        background: new Paint()..color = Colors.yellow,
+        // 装饰
+        decoration: TextDecoration.underline,
+        // 装饰风格
+        decorationStyle: TextDecorationStyle.dashed,
+      ),
     );
   }
 }

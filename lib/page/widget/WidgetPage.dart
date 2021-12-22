@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '/sample/widget/basic/ButtonSample.dart';
 import 'basic/TextPage.dart';
 import 'basic/ButtonPage.dart';
 import 'basic/ImagePage.dart';
@@ -50,48 +50,31 @@ class WidgetPage extends StatelessWidget {
             padding: EdgeInsets.only(left: 10.0, right: 10.0),
             child: Wrap(
               spacing: 8.0,
+              runSpacing: 8.0,
               children: [
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "文本",
                   onPressed: () => _navigatorPush(context, TextPage()),
-                  child: Text("文本"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "按钮",
                   onPressed: () => _navigatorPush(context, ButtonPage()),
-                  child: Text("按钮"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "图片",
                   onPressed: () => _navigatorPush(context, ImagePage()),
-                  child: Text("图片"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "输入框",
                   onPressed: () => _navigatorPush(context, TextFieldPage()),
-                  child: Text("输入框"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "开关控件",
                   onPressed: () => _navigatorPush(context, SwitchPage()),
-                  child: Text("开关控件"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "进度指示器",
                   onPressed: () => _navigatorPush(context, ProgressPage()),
-                  child: Text("进度指示器"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
               ],
             ),
@@ -112,33 +95,21 @@ class WidgetPage extends StatelessWidget {
             child: Wrap(
               spacing: 8.0,
               children: [
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "脚手架",
                   onPressed: () => _navigatorPush(context, ScaffoldPage()),
-                  child: Text("脚手架"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "容器",
                   onPressed: () => _navigatorPush(context, ContainerPage()),
-                  child: Text("容器"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "排列对齐",
                   onPressed: () => _navigatorPush(context, AlignPage()),
-                  child: Text("排列对齐"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "滚动布局",
                   onPressed: () => _navigatorPush(context, ScrollLayoutPage()),
-                  child: Text("滚动布局"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
               ],
             ),
@@ -158,34 +129,23 @@ class WidgetPage extends StatelessWidget {
             padding: EdgeInsets.only(left: 10.0, right: 10.0),
             child: Wrap(
               spacing: 8.0,
+              runSpacing: 8.0,
               children: [
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "线性布局",
                   onPressed: () => _navigatorPush(context, LinearLayoutPage()),
-                  child: Text("线性布局"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "流式布局",
                   onPressed: () => _navigatorPush(context, WrapPage()),
-                  child: Text("流式布局"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "层叠布局",
                   onPressed: () => _navigatorPush(context, StackPage()),
-                  child: Text("层叠布局"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "列表布局",
                   onPressed: () => _navigatorPush(context, ListLayoutPage()),
-                  child: Text("列表布局"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
               ],
             ),
@@ -205,20 +165,15 @@ class WidgetPage extends StatelessWidget {
             padding: EdgeInsets.only(left: 10.0, right: 10.0),
             child: Wrap(
               spacing: 8.0,
+              runSpacing: 8.0,
               children: [
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "导航返回拦截",
                   onPressed: () => _navigatorPush(context, WillPopScopePage()),
-                  child: Text("导航返回拦截"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
-                ElevatedButton(
+                ElevatedButton1(
+                  data: "数据共享",
                   onPressed: () => _navigatorPush(context, InheritedWidgetPage()),
-                  child: Text("数据共享"),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
                 ),
               ],
             ),
