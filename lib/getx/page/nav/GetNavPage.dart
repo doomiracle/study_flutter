@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_flutter/routes/getx/GetRoutes.dart';
+import 'package:study_flutter/getx/routes/GetRoutes.dart';
 
 import '/sample/widget/basic/ButtonSample.dart';
 import 'GetNavPageTwo.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/sample/widget/basic/ButtonSample.dart';
-import '/routes/getx/GetRoutes.dart';
+import '../routes/GetRoutes.dart';
 
 /// GetX 示例界面
 /// 1. 路由管理
@@ -26,8 +26,12 @@ class GetXPage extends StatelessWidget {
                 onPressed: () => Get.toNamed(GetRoutes.NAV),
               ),
               ElevatedButton1(
+                data: "内置组件",
+                onPressed: () => Get.toNamed(GetRoutes.WIDGET),
+              ),
+              ElevatedButton1(
                 data: "状态管理",
-                onPressed: () => {},
+                onPressed: () => Get.toNamed(GetRoutes.STATE),
               ),
               ElevatedButton1(
                 data: "依赖注入",

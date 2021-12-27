@@ -10,15 +10,15 @@ class GetNavPageThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("导航示例"),
+          title: Text("路由管理3"),
         ),
         body: Container(
-          padding: EdgeInsets.only(bottom: 16),
+          padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.only(bottom: 16),
                 child: Text(
                   "界面3",
                   style: TextStyle(
