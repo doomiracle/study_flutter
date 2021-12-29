@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:study_flutter/getx/page/di/GetDiPage.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPage.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPageThree.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPageTwo.dart';
@@ -22,11 +23,14 @@ abstract class GetRoutes {
   static const WIDGET_DIALOGS = '/widgetDialogs';
   static const WIDGET_BOTTOMSSHEETS = '/widgetBottomssheets';
   static const STATE = '/state';
+  static const DI = '/di';
 
   /// 所有的页面配置以及名称
   static final pages = [
     GetPage(
+      // 名称
       name: GETX,
+      // 页面
       page: () => GetXPage(),
     ),
     GetPage(
@@ -36,6 +40,8 @@ abstract class GetRoutes {
     GetPage(
       name: NAV2,
       page: () => GetNavPageTwo(),
+      // 动画效果
+      transition: Transition.leftToRight,
     ),
     GetPage(
       name: NAV3,
@@ -60,6 +66,10 @@ abstract class GetRoutes {
     GetPage(
       name: STATE,
       page: () => GetStatePage(),
+    ),
+     GetPage(
+      name: DI,
+      page: () => GetDiPage(),
     ),
   ];
 }

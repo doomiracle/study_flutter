@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_flutter/getx/controller/GetStateController.dart';
 
 import '/sample/widget/basic/ButtonSample.dart';
 import '../routes/GetRoutes.dart';
@@ -11,6 +12,7 @@ import '../routes/GetRoutes.dart';
 class GetXPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    _initController();
     return Scaffold(
         appBar: AppBar(
           title: Text("GetX 示例"),
@@ -35,7 +37,7 @@ class GetXPage extends StatelessWidget {
               ),
               ElevatedButton1(
                 data: "依赖注入",
-                onPressed: () => {},
+                onPressed: () => Get.toNamed(GetRoutes.DI),
               ),
               ElevatedButton1(
                 data: "国际化",
@@ -44,5 +46,11 @@ class GetXPage extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  /// 初始化一些控制器
+  void _initController() {
+    /// 通过 put 方法初始化一些控制器，尽量保证这个代码只执行一遍
+    Get.lazyPut<GetStateController>(() => GetStateController());
   }
 }

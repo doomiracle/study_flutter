@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:study_flutter/getx/page/GetXPage.dart';
 import 'package:study_flutter/getx/routes/GetRoutes.dart';
 
 /// GetX 应用
@@ -13,9 +13,18 @@ class GetXApp extends StatelessWidget {
     // 将 MaterialApp 替换为 GetMaterialApp
     return GetMaterialApp(
       // 首页
-      home: GetXPage(),
+      initialRoute: GetRoutes.GETX,
       // 所有的页面和名称
       getPages: GetRoutes.pages,
+      // 默认的转场动画
+      defaultTransition: Transition.zoom,
+      // 路由动作回调
+      routingCallback: (routing) => _routingCallback(routing),
     );
+  }
+
+  /// 路由动作回调
+  void _routingCallback(Routing? routing) {
+    print(routing?.current);
   }
 }

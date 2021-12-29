@@ -30,8 +30,9 @@ class GetWidgetPage extends StatelessWidget {
                     onPressed: () => Get.toNamed(GetRoutes.WIDGET_DIALOGS),
                   ),
                   ElevatedButton1(
-                    data: "Snackbars",
-                    onPressed: () => Get.toNamed(GetRoutes.WIDGET_SNACKBARS),
+                    data: "BottomSheets",
+                    onPressed: () =>
+                        Get.toNamed(GetRoutes.WIDGET_BOTTOMSSHEETS),
                   ),
                 ],
               ),

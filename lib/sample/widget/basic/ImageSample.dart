@@ -69,9 +69,15 @@ class Icons1 extends StatelessWidget {
 }
 
 /// 使用Icons中的图标库
+/// https://fonts.google.com/icons?selected=Material+Icons
 class Icons2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.add_location_alt_outlined, color: Colors.blue);
+    return Icon(
+      // 图标库引用
+      Icons.add_location_alt_outlined,
+      // 颜色
+      color: Colors.blue,
+    );
   }
 }

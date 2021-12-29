@@ -139,3 +139,35 @@ class GridView1 extends StatelessWidget {
         ]);
   }
 }
+
+/// ListTile
+/// 列表常见的Item
+/// 属性：
+///   title 标题
+///   subtitleStr 副标题
+///   leading 左边图标
+///   trailing 右边图标
+class ListTile1 extends StatelessWidget {
+  // 标题
+  final String? titleStr;
+
+  // 副标题
+  final String? subtitleStr;
+
+  // 构造函数
+  ListTile1({this.titleStr, this.subtitleStr});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      // 标题
+      title: Text(titleStr ?? "标题"),
+      // 副标题
+      subtitle: Text(subtitleStr ?? "副标题"),
+      // 左边图标
+      leading: Icon(Icons.flutter_dash),
+      // 右边图标
+      trailing: Icon(Icons.flutter_dash),
+    );
+  }
+}

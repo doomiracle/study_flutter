@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 
-/// Snackbars
+/// Dialogs
+/// 用最简单的方式弹出Dialog
 class GetDialogsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,19 +42,16 @@ class GetDialogsPage extends StatelessWidget {
   /// barrierDismissible  点击其它地方是否允许退出
   void _defaultDialog1() {
     Get.defaultDialog(
-      title: '标题',
+      // 标题
+      title: '登录失效',
+      // 标题样式
       titleStyle: TextStyle(
         color: Colors.black,
       ),
       // 内容
-      content: Column(
-        children: [
-          Text('这里是模拟的数据'),
-          Text('这里是模拟的数据'),
-          Text('这里是模拟的数据'),
-          Text('这里是模拟的数据'),
-          Text('这里是模拟的数据'),
-        ],
+      content: Container(
+        padding: EdgeInsets.all(16),
+        child: Text('检测到当前账号已在其它设备登录，是否重新登录?'),
       ),
       // 取消按钮
       textCancel: '取消',

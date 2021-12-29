@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:study_flutter/getx/controller/GetStateController.dart';
+import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 
 /// 状态管理
 /// 这里用官方的计数器示例来展示GetX如何进行路由管理
@@ -11,36 +12,74 @@ import 'package:study_flutter/getx/controller/GetStateController.dart';
 class GetStatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    /// 定义一个controller，通过依赖注入获取Controller的实例
-    final controller = Get.put(GetStateController());
-
     return Scaffold(
       appBar: AppBar(
         title: Text("状态管理"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 200,
-            width: 200,
-            color: Colors.red,
-            alignment: Alignment.center,
-            // 通过Obx函数，当可观察对象发生改变时，最小化构建界面widget
-            child: Obx(() => Text(
-                  controller.count.toString(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // 通过 GetBuilder 创建一个简单的 Controller，需要手动调用 update 方法，才会重新构建
+            GetBuilder<GetStateController>(
+                init: GetStateController(),
+                // 这里可以加一个id，在update的时候，必须定向触发构建
+                id: "firstCount",
+                builder: (controller) => Text(
+                      controller.count1.toString(),
+                      style: TextStyle(
+                        fontSize: 50,
+                        color: Colors.black,
+                      ),
+                    )),
+            // 通过 Obx 方式构建一个 Text，当数据改变时，会触发重新构建
+            Obx(() => Text(
+                  GetStateController.to.count2.toString(),
                   style: TextStyle(
                     fontSize: 50,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 )),
-          ),
-        ],
+            // 通过GetX的方式获取一个Controller实例，并创建Text
+            GetX<GetStateController>(
+              builder: (data) {
+                return Text(
+                  data.count3.toString(),
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.black,
+                  ),
+                );
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton1(
+                data: "增加第一个数",
+                onPressed: () => GetStateController.to.increment1(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton1(
+                data: "增加第二个数",
+                onPressed: () => GetStateController.to.increment2(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton1(
+                data: "增加第三个数",
+                onPressed: () => GetStateController.to.increment3(),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         //悬浮按钮
         child: Icon(Icons.add),
-        onPressed: () => controller.increment(),
+        onPressed: () => GetStateController.to.increment1(),
       ),
     );
   }

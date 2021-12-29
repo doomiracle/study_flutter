@@ -103,7 +103,10 @@ class GetNavPage extends StatelessWidget {
   /// 当前界面进栈
   /// 增加参数的传递
   void _toNamed2() {
-    Get.toNamed(GetRoutes.NAV2, arguments: 'from page1');
+    Get.toNamed(GetRoutes.NAV2, arguments: {
+      'key1':'来自界面1的数据',
+      'key2':'value2',
+    });
   }
 
   /// 打开新的页面,删除当前页面

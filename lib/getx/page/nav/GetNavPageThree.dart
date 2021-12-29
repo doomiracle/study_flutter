@@ -31,11 +31,13 @@ class GetNavPageThree extends StatelessWidget {
                 runSpacing: 16.0,
                 children: <Widget>[
                   ElevatedButton1(
-                    onPressed: () => {},
-                    data: "回到上一个界面",
+                    onPressed: () => Get.back(),
+                    data: "返回",
                   ),
                   ElevatedButton1(
-                    onPressed: () => {},
+                    onPressed: () {
+                      
+                    },
                     data: "回到主界面",
                   ),
                 ],

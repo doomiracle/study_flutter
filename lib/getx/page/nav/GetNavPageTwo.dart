@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_flutter/getx/controller/GetStateController.dart';
 import 'package:study_flutter/getx/routes/GetRoutes.dart';
 import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 
@@ -47,11 +46,13 @@ class GetNavPageTwo extends StatelessWidget {
   }
 
   String _arguments1() {
-    // var dataFromLastPage = Get.arguments;
-    // print("dataFromLastPage = " + dataFromLastPage);
-    // if (dataFromLastPage != null) {
-    //   return dataFromLastPage;
-    // }
+    final argumentsByLast = Get.arguments;
+    if (argumentsByLast != null) {
+      var value = argumentsByLast["key1"];
+      if (value != null) {
+        return value;
+      }
+    }
     return "界面2";
   }
 }
