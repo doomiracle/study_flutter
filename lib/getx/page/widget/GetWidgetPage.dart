@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:study_flutter/getx/routes/GetRoutes.dart';
+import 'package:study_flutter/getx/routes/app_pages.dart';
 import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 
 /// Get框架中自带的Widget组件，不需要上下文
@@ -23,16 +23,16 @@ class GetWidgetPage extends StatelessWidget {
                 children: <Widget>[
                   ElevatedButton1(
                     data: "Snackbars",
-                    onPressed: () => Get.toNamed(GetRoutes.WIDGET_SNACKBARS),
+                    onPressed: () => Get.toNamed(Routes.WIDGET_SNACKBARS),
                   ),
                   ElevatedButton1(
                     data: "Dialogs",
-                    onPressed: () => Get.toNamed(GetRoutes.WIDGET_DIALOGS),
+                    onPressed: () => Get.toNamed(Routes.WIDGET_DIALOGS),
                   ),
                   ElevatedButton1(
                     data: "BottomSheets",
                     onPressed: () =>
-                        Get.toNamed(GetRoutes.WIDGET_BOTTOMSSHEETS),
+                        Get.toNamed(Routes.WIDGET_BOTTOMSSHEETS),
                   ),
                 ],
               ),

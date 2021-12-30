@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_flutter/getx/routes/GetRoutes.dart';
+import 'package:study_flutter/getx/page/nav/nav_controller.dart';
+import 'package:study_flutter/getx/routes/app_pages.dart';
 import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 
 /// GetX路由管理
@@ -8,6 +9,7 @@ import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 class GetNavPageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final controller = GetNavController.to;
     return Scaffold(
         appBar: AppBar(
           title: Text("路由管理2"),
@@ -26,6 +28,17 @@ class GetNavPageTwo extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Obx(
+                  () => Text(
+                    controller.count.toString(),
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
               Wrap(
                 spacing: 16.0,
                 runSpacing: 16.0,
@@ -36,7 +49,15 @@ class GetNavPageTwo extends StatelessWidget {
                   ),
                   ElevatedButton1(
                     data: "新的页面",
-                    onPressed: () => Get.toNamed(GetRoutes.NAV3),
+                    onPressed: () => Get.toNamed(Routes.NAV3),
+                  ),
+                  ElevatedButton1(
+                    data: "新的页面,删除当前",
+                    onPressed: () => Get.offNamed(Routes.NAV3),
+                  ),
+                  ElevatedButton1(
+                    data: "增加数量",
+                    onPressed: () => controller.addCount(),
                   ),
                 ],
               ),

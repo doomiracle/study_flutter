@@ -35,7 +35,7 @@ class ElevatedButton1 extends StatelessWidget {
       child: Text(
         data ?? "悬浮按钮",
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 14,
         ),
       ),
       // 样式
@@ -43,7 +43,7 @@ class ElevatedButton1 extends StatelessWidget {
         // 背景色
         backgroundColor: MaterialStateProperty.all(Colors.blue),
         // 内边距
-        padding: MaterialStateProperty.all(EdgeInsets.all(16)),
+        padding: MaterialStateProperty.all(EdgeInsets.all(8)),
       ),
     );
   }

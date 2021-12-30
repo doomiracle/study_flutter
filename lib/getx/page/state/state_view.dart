@@ -9,6 +9,10 @@ import 'package:study_flutter/sample/widget/basic/ButtonSample.dart';
 /// 1. 创建Controller(类似ViewModel，逻辑部分)
 /// 2. 获取Controller实例
 /// 3. 通过Obx函数最小化创建widget
+///
+/// 两种状态管理器：
+/// GetBuilder  简单的状态管理器；这种状态管理器需要手动的触发更新，才会重新构建
+/// GetX        响应式状态管理器；这种状态管理器类似于流的方式，会自动构建
 class GetStatePage extends GetView<GetStateController> {
   @override
   Widget build(BuildContext context) {
@@ -16,9 +20,10 @@ class GetStatePage extends GetView<GetStateController> {
       appBar: AppBar(
         title: Text("状态管理"),
       ),
-      body: Center(
+      body: Container(
+        padding: EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 通过 GetBuilder 创建一个简单的 Controller，需要手动调用 update 方法，才会重新构建
             GetBuilder<GetStateController>(
@@ -52,26 +57,23 @@ class GetStatePage extends GetView<GetStateController> {
                 );
               },
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton1(
-                data: "增加第一个数",
-                onPressed: () => controller.increment1(),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton1(
-                data: "增加第二个数",
-                onPressed: () => controller.increment2(),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton1(
-                data: "增加第三个数",
-                onPressed: () => controller.increment3(),
-              ),
+            Wrap(
+              spacing: 12.0,
+              runSpacing: 12.0,
+              children: [
+                ElevatedButton1(
+                  data: "增加第一个数",
+                  onPressed: () => controller.increment1(),
+                ),
+                ElevatedButton1(
+                  data: "增加第二个数",
+                  onPressed: () => controller.increment2(),
+                ),
+                ElevatedButton1(
+                  data: "增加第三个数",
+                  onPressed: () => controller.increment3(),
+                ),
+              ],
             ),
           ],
         ),

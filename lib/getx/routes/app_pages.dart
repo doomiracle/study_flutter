@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:study_flutter/getx/page/GetXPage.dart';
 import 'package:study_flutter/getx/page/di/GetDiPage.dart';
+import 'package:study_flutter/getx/page/local/local_view.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPage.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPageThree.dart';
 import 'package:study_flutter/getx/page/nav/GetNavPageTwo.dart';
@@ -54,11 +55,16 @@ abstract class AppPages {
     GetPage(
       name: Routes.STATE,
       page: () => GetStatePage(),
+      // 将 Controller 的生命周期与View绑定起来
       binding: GetStateBinding(),
     ),
     GetPage(
       name: Routes.DI,
       page: () => GetDiPage(),
+    ),
+     GetPage(
+      name: Routes.LOCAL,
+      page: () => GetLocalPage(),
     ),
   ];
 }

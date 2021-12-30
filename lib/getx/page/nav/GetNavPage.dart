@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_flutter/getx/routes/GetRoutes.dart';
+import 'package:study_flutter/getx/page/nav/nav_controller.dart';
+import 'package:study_flutter/getx/routes/app_pages.dart';
 
 import '/sample/widget/basic/ButtonSample.dart';
 import 'GetNavPageTwo.dart';
@@ -11,6 +12,9 @@ import 'GetNavPageTwo.dart';
 class GetNavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 创建构建器，在这里创建的实例，对当下的所有子路由可用。
+    var controller = Get.put(GetNavController());
+
     return Scaffold(
         appBar: AppBar(
           title: Text("路由管理"),
@@ -29,9 +33,20 @@ class GetNavPage extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Obx(
+                  () => Text(
+                    controller.count.toString(),
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
               Wrap(
-                spacing: 16.0,
-                runSpacing: 16.0,
+                spacing: 8.0,
+                runSpacing: 8.0,
                 children: <Widget>[
                   ElevatedButton1(
                     data: "返回",
@@ -66,6 +81,10 @@ class GetNavPage extends StatelessWidget {
                     data: "新的页面(名称),删除所有",
                     onPressed: () => _offAllNamed1(),
                   ),
+                  ElevatedButton1(
+                    data: "添加数量",
+                    onPressed: () => controller.addCount(),
+                  ),
                 ],
               ),
             ],
@@ -82,20 +101,20 @@ class GetNavPage extends StatelessWidget {
   /// 当前界面进栈
   /// 建议都通过名称!!!
   void _to1() {
-    Get.to(GetNavPageTwo());
+    Get.to(() => GetNavPageTwo());
   }
 
   /// 打开到新的页面
   /// 当前界面进栈
   Future<void> _to2() async {
-    var data = await Get.to(GetNavPageTwo());
+    var data = await Get.to(() => GetNavPageTwo());
   }
 
   /// 通过名称 打开到新的页面
   /// 名称需要提前配置
   /// 当前界面进栈
   void _toNamed1() {
-    Get.toNamed(GetRoutes.NAV2);
+    Get.toNamed(Routes.NAV2);
   }
 
   /// 通过名称 打开到新的页面
@@ -103,32 +122,32 @@ class GetNavPage extends StatelessWidget {
   /// 当前界面进栈
   /// 增加参数的传递
   void _toNamed2() {
-    Get.toNamed(GetRoutes.NAV2, arguments: {
-      'key1':'来自界面1的数据',
-      'key2':'value2',
+    Get.toNamed(Routes.NAV2, arguments: {
+      'key1': '来自界面1的数据',
+      'key2': 'value2',
     });
   }
 
   /// 打开新的页面,删除当前页面
   /// 建议都通过名称!!!
   void _of1() {
-    Get.off(GetNavPageTwo());
+    Get.off(() => GetNavPageTwo());
   }
 
   /// 通过名称 打开新的页面,删除当前页面
   /// 名称需要提前配置
   void _offNamed1() {
-    Get.offNamed(GetRoutes.NAV2);
+    Get.offNamed(Routes.NAV2);
   }
 
   /// 打开新的页面,删除所有页面
   /// 建议都通过名称!!!
   void _offAll1() {
-    Get.offAll(GetNavPageTwo());
+    Get.offAll(() => GetNavPageTwo());
   }
 
   /// 通过名称 打开新的页面,删除当前页面
   void _offAllNamed1() {
-    Get.offAllNamed(GetRoutes.NAV2);
+    Get.offAllNamed(Routes.NAV2);
   }
 }
