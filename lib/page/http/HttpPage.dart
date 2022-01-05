@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:study_flutter/page/http/dio/dio_view.dart';
 
 /// HTTP操作
 /// http://pcs-api.wt.cainiao.com/api/pdaVersion/check?session=24956798&warehouseId=10030001
@@ -36,19 +37,29 @@ class _HttpPageState extends State<HttpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              onPressed: () async {
-                setState(() {
-                  _loading = true;
-                  _result = "正在请求...";
-                });
-                String response = await _httpClient1();
-                setState(() {
-                  _loading = false;
-                  _result = response;
-                });
-              },
-              child: Text("请求数据"),
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    setState(() {
+                      _loading = true;
+                      _result = "正在请求...";
+                    });
+                    String response = await _httpClient1();
+                    setState(() {
+                      _loading = false;
+                      _result = response;
+                    });
+                  },
+                  child: Text("请求数据"),
+                ),
+                ElevatedButton(
+                  onPressed: () => _navigatorPush(context, DioPage()),
+                  child: Text('Dio'),
+                ),
+              ],
             ),
             Text(_result ?? ""),
           ],
@@ -75,5 +86,12 @@ class _HttpPageState extends State<HttpPage> {
       responseContent = e.toString();
     }
     return responseContent;
+  }
+
+  /// 导航到一个新界面
+  void _navigatorPush(BuildContext context, Widget widget) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return widget;
+    }));
   }
 }

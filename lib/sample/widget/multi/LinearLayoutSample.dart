@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Row       水平布局
+/// Column    垂直布局
+/// Expanded
+
 /// 水平布局
 /// 将子控件水平排列
 /// 常用属性：

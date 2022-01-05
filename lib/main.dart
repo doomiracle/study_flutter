@@ -6,8 +6,8 @@ import 'page/main/MainPage.dart';
 /// 应用启动方法
 void main() {
   // 入口方法
-  // runApp(MainApp());
-  runApp(GetXApp());
+  runApp(MainApp());
+  // runApp(GetXApp());
 }
 
 /// 主应用

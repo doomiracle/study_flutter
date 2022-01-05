@@ -24,6 +24,8 @@ dependencies:
 
   # Flutter默认图标库
   cupertino_icons: ^1.0.4
+  # 网络请求库
+  dio: ^4.0.3
   # Toast
   fluttertoast: ^8.0.8
   # 存储库(并非所有系统都支持)
