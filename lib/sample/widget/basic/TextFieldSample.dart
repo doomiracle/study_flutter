@@ -112,30 +112,54 @@ class TextField1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      // 编辑框的控制器
       controller: _controller,
+      // 是否自动获取焦点
       autofocus: true,
+      // 是否隐藏正在编辑的文本
       obscureText: false,
+      // 输入类型
       keyboardType: TextInputType.text,
+      // 软键盘回车按钮图标
       textInputAction: TextInputAction.done,
+      // 文字输入位置
       textAlign: TextAlign.left,
+      // 输入框的最大行数
       maxLines: 1,
+      // 允许输入内容大小
       maxLength: 20,
+      // 允许输入内容超过限制后策略
       maxLengthEnforcement: MaxLengthEnforcement.none,
+      // 是否可以编辑
       enabled: true,
+      // 光标颜色
       cursorColor: Colors.blue,
+      // 焦点
       focusNode: _focusNode,
       onChanged: (text) {
         print("onChange: $text");
       },
+      // decoration 用来控制外观显示
       decoration: InputDecoration(
+        // 提示文字内容
         hintText: "请输入内容",
         prefixIcon: Icon(Icons.person),
+        // 没焦点时的边框
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: BorderSide(
+            // 边框颜色
+            color: Colors.grey,
+          ),
         ),
+        // 有焦点时的边框
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(
+            // 边框颜色
+            color: Colors.blue,
+          ),
         ),
+        // 去掉默认边框
+        border: InputBorder.none,
       ),
     );
   }
