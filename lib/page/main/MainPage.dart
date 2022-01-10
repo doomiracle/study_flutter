@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:study_flutter/page/network/network_page.dart';
 import '/page/navigator/NavigatorPage.dart';
 import '/sample/widget/basic/ButtonSample.dart';
 import '/page/animation/AnimationPage.dart';
 import '/page/file/FilePage.dart';
 import '/page/future/FuturePage.dart';
-import '/page/http/HttpPage.dart';
 import '/page/theme/ThemePage.dart';
 import '/page/widget/WidgetPage.dart';
 
@@ -55,7 +55,7 @@ class MainPage extends StatelessWidget {
             ),
             ElevatedButton1(
               data: "网络请求",
-              onPressed: () => _navigatorPush(context, HttpPage()),
+              onPressed: () => _navigatorPush(context, NetworkPage()),
             ),
           ],
         ),
