@@ -38,6 +38,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # flutter_gen 图片生成框架
+  # 生成命令：flutter packages pub run build_runner build
+  build_runner:
+  flutter_gen_runner:
+
 # 项目中配置声明方式
 # 用于在项目中添加资源、设置字体、配置插件参数等。
 flutter:
@@ -49,4 +54,5 @@ flutter:
   # 添加资源
   assets:
     - images/ic_login_scan.png
+    - images/ic_record.png
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_flutter/gen/assets.gen.dart';
 import '/sample/widget/basic/ImageSample.dart';
 
 /// 图片 以及 矢量图
@@ -18,6 +19,8 @@ class ImagePage extends StatelessWidget {
           Padding(padding: EdgeInsets.all(5.0), child: AssetImage1()),
           Padding(padding: EdgeInsets.all(5.0), child: NetworkImage1()),
           Padding(padding: EdgeInsets.all(5.0), child: Icons2()),
+          // 通过 gen 框架生成图片资源引用
+          Padding(padding: EdgeInsets.all(5.0), child: Assets.images.icRecord.image()),
         ],
       ),
     );
