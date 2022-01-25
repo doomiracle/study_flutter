@@ -20,6 +20,7 @@ class Container1 extends StatelessWidget {
       alignment: Alignment.topLeft,
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(10.0),
+      // 容器大小的限制条件
       constraints: BoxConstraints.expand(),
       width: 60.0,
       height: 60.0,

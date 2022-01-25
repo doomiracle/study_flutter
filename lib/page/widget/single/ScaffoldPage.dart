@@ -59,8 +59,11 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
                 print("导航栏右侧菜单被点击");
               }),
         ],
+        // 底部阴影
         elevation: 4.0,
+        // 标题是否居中
         centerTitle: true,
+        // 背景颜色
         backgroundColor: Colors.blue,
       ),
       body: Container(
